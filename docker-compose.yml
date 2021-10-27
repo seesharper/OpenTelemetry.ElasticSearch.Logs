@@ -3,11 +3,10 @@
 version: "3.4"
 
 services:
-  opentelemetryelasticsearchlogsexporter:
-    image: opentelemetryelasticsearchlogsexporter
+  opentelemetry-elasticsearch-logs:
+    image: bernhardrichter/opentelemetry-elasticsearch-logs
     build:
       context: .
-      dockerfile: src/OpenTelemetry.ElasticSearch.Logs.Exporter/Dockerfile
     ports:
       - 5000:5000
   elasticsearch:
