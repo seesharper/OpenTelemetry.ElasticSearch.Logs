@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs.Exporter/bin/Debug/net5.0/OpenTelemetry.ElasticSearch.Logs.Exporter.dll",
+            "program": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/bin/Debug/net5.0/OpenTelemetry.ElasticSearch.Logs.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs.Exporter",
+            "cwd": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs",
             "console": "internalConsole",
             "stopAtEntry": false
         },
@@ -23,7 +23,7 @@
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs.Exporter/OpenTelemetry.ElasticSearch.Logs.Exporter.csproj"
+                "appProject": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/OpenTelemetry.ElasticSearch.Logs.csproj"
             }
         }
     ]

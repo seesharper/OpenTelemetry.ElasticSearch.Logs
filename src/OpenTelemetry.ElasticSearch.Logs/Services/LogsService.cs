@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Microsoft.Extensions.Logging;
 using Nest;
 using Opentelemetry.Proto.Collector.Logs.V1;
 using Opentelemetry.Proto.Logs.V1;
@@ -11,10 +12,12 @@ using OpenTelemetry.ElasticSearch.Logs.Exporter;
 public class LogsService : Opentelemetry.Proto.Collector.Logs.V1.LogsService.LogsServiceBase
 {
     private readonly IElasticClient elasticClient;
+    private readonly ILogger<LogsService> logger;
 
-    public LogsService(IElasticClient elasticClient)
+    public LogsService(IElasticClient elasticClient, ILogger<LogsService> logger)
     {
         this.elasticClient = elasticClient;
+        this.logger = logger;
     }
 
     public async override Task<ExportLogsServiceResponse> Export(ExportLogsServiceRequest request, ServerCallContext context)
@@ -47,6 +50,7 @@ public class LogsService : Opentelemetry.Proto.Collector.Logs.V1.LogsService.Log
             }
             if (logEntries.Count > 0)
             {
+                logger.LogInformation($"Indexing {logEntries.Count} to elastic search");
                 await elasticClient.IndexManyAsync(logEntries, indexFormat);
             }
         }
