@@ -1,13 +1,10 @@
 #load "nuget:Dotnet.Build, 0.9.3"
 #load "nuget:dotnet-steps, 0.0.2"
 
-
-
-
 [StepDescription("Creates the NuGet packages")]
 AsyncStep dockerImage = async () =>
 {
-    await Docker.BuildAsync("bernhardrichter/opentelemetry-elasticsearch-logs-exporter", BuildContext.LatestTag, BuildContext.RepositoryFolder);
+    await Docker.BuildAsync("bernhardrichter/opentelemetry-elasticsearch-logs", BuildContext.LatestTag, BuildContext.RepositoryFolder);
 };
 
 
@@ -18,7 +15,7 @@ AsyncStep deploy = async () =>
     await dockerImage();
     if (BuildEnvironment.IsSecure && BuildEnvironment.IsTagCommit)
     {
-        await Docker.PushAsync("bernhardrichter/opentelemetry-elasticsearch-logs-exporter", BuildContext.LatestTag, BuildContext.BuildFolder);
+        await Docker.PushAsync("bernhardrichter/opentelemetry-elasticsearch-logs", BuildContext.LatestTag, BuildContext.BuildFolder);
     }
 
     await Artifacts.Deploy();
