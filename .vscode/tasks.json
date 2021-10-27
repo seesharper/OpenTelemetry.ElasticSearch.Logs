@@ -94,6 +94,62 @@
                 "showReuseMessage": true,
                 "clear": true
             }
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: debug",
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "opentelemetryelasticsearchlogs:dev",
+                "target": "base",
+                "dockerfile": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/OpenTelemetry.ElasticSearch.Logs.csproj"
+            }
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: release",
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "opentelemetryelasticsearchlogs:latest",
+                "dockerfile": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/OpenTelemetry.ElasticSearch.Logs.csproj"
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "dependsOn": [
+                "docker-build: debug"
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/OpenTelemetry.ElasticSearch.Logs.csproj",
+                "enableDebugging": true
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: release",
+            "dependsOn": [
+                "docker-build: release"
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/OpenTelemetry.ElasticSearch.Logs/OpenTelemetry.ElasticSearch.Logs.csproj"
+            }
         }
     ]
 }
