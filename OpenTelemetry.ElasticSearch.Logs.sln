@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7980FA82-D78A-4CAE-A438-F0E00F54FD21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.ElasticSearch.Logs.Exporter", "src\OpenTelemetry.ElasticSearch.Logs.Exporter\OpenTelemetry.ElasticSearch.Logs.Exporter.csproj", "{20F0124C-D0A5-4FF6-847C-CC161E10F975}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.ElasticSearch.Logs.Exporter", "src\OpenTelemetry.ElasticSearch.Logs\OpenTelemetry.ElasticSearch.Logs.csproj", "{20F0124C-D0A5-4FF6-847C-CC161E10F975}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.ElasticSearch.Logs.Exporter.Tests", "src\OpenTelemetry.ElasticSearch.Logs.Exporter.Tests\OpenTelemetry.ElasticSearch.Logs.Exporter.Tests.csproj", "{3B49F202-157D-4721-997D-6D9F128941A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.ElasticSearch.Logs.Exporter.Tests", "src\OpenTelemetry.ElasticSearch.Logs.Tests\OpenTelemetry.ElasticSearch.Logs.Tests.csproj", "{3B49F202-157D-4721-997D-6D9F128941A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

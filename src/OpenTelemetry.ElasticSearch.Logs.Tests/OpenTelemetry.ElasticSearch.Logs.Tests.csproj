@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenTelemetry.ElasticSearch.Logs.Exporter\OpenTelemetry.ElasticSearch.Logs.Exporter.csproj" />
+    <ProjectReference Include="..\OpenTelemetry.ElasticSearch.Logs\OpenTelemetry.ElasticSearch.Logs.csproj" />
   </ItemGroup>
 
 </Project>
