@@ -1,0 +1,11 @@
+GET http://127.0.0.1:9200/_cat/indices?v
+
+###
+GET http://127.0.0.1:9200/opentelemetry.elasticsearch.logs.exporter.tests-2021-10
+
+###
+GET http://127.0.0.1:9200/opentelemetry.elasticsearch.logs.exporter.tests-2021-10/_search?pretty
+
+
+###
+GET http://127.0.0.1:9200/serilog-server-2021-10/_search?pretty
