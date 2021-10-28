@@ -25,7 +25,7 @@ namespace OpenTelemetry.ElasticSearch.Logs.Exporter
                     webBuilder.ConfigureKestrel(options =>
                    {
                        //Setup a HTTP / 2 endpoint without TLS.
-                       options.ListenAnyIP(5000, o => o.Protocols =
+                       options.ListenAnyIP(7506, o => o.Protocols =
                               HttpProtocols.Http2);
                    });
                     webBuilder.UseStartup<Startup>();
